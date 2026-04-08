@@ -15,7 +15,7 @@
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:#D9EFFF;color:#1a1a1a;overflow-x:hidden;}
+body{font-family:'Inter',sans-serif;background:#D9EFFF;color:#1a1a1a;overflow-x:hidden;font-size:16px;}
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
 
@@ -61,7 +61,7 @@ button{outline:none;border:none;}
 .section-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;}
 .section-center .label{color:#5590C4;display:block;margin-bottom:6px;}
 .section-center h2{font-size:clamp(28px,5vw,38px);color:var(--text);margin-bottom:10px;}
-.section-center .desc{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-mid);line-height:1.72;max-width:500px;margin:0 auto;}
+.section-center .desc{font-family:'Inter',sans-serif;font-size:16px;color:var(--text-mid);line-height:1.72;max-width:500px;margin:0 auto;}
 
 /* ===== LEAF DECORATIONS ===== */
 .leaf{position:absolute;pointer-events:none;opacity:.14;}
@@ -89,7 +89,7 @@ button{outline:none;border:none;}
 .nav-logo-text{display:none;}
 .nav-logo-sub{display:none;}
 .nav-links{display:flex;align-items:center;gap:2px;}
-.nav-links a{font-family:'Quicksand',sans-serif;font-size:12.5px;font-weight:600;color:#1a1a1a;padding:6px 10px;border-radius:20px;transition:background .2s;}
+.nav-links a{font-family:'Quicksand',sans-serif;font-size:13.5px;font-weight:600;color:#1a1a1a;padding:6px 10px;border-radius:20px;transition:background .2s;}
 .nav-links a:hover{background:rgba(0,0,0,.1);color:#1a1a1a;}
 .nav-vs{background:rgba(255,255,255,.55);color:#1A5FA8;font-family:'Quicksand',sans-serif;font-size:12px;font-weight:700;padding:7px 14px;border-radius:50px;margin-left:6px;transition:background .2s;}
 .nav-vs:hover{background:rgba(255,255,255,.75);}
@@ -148,14 +148,14 @@ button{outline:none;border:none;}
 .hero-content{
   position:relative;
   z-index:2;
-  max-width:640px;
-  padding:60px 32px 180px 8px;
+  max-width:580px;
+  padding:60px 0 180px 0;
   text-align:left;
 }
 .hero-badge{display:inline-block;background:var(--yellow);color:#1a1a1a;font-family:'Quicksand',sans-serif;font-size:11px;font-weight:700;padding:5px 16px;border-radius:50px;margin-bottom:18px;letter-spacing:.6px;text-transform:uppercase;}
 .hero h1{font-size:clamp(36px,6vw,58px);color:#fff;line-height:1.08;margin-bottom:18px;text-shadow:0 2px 16px rgba(0,0,0,.22);}
 .hero h1 em{color:#F9C832;font-style:normal;}
-.hero-desc{font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,.92);line-height:1.75;margin-bottom:30px;text-shadow:0 1px 8px rgba(0,0,0,.2);}
+.hero-desc{font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,.92);line-height:1.75;margin-bottom:30px;text-shadow:0 1px 8px rgba(0,0,0,.2);}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-start;}
 .btn-primary{background:var(--yellow);color:#1a1a1a;padding:13px 28px;font-size:14px;box-shadow:none;transition:box-shadow .3s,transform .2s;}
 .btn-primary:hover{box-shadow:0 6px 28px rgba(249,200,50,.8);transform:translateY(-2px);}
@@ -207,8 +207,8 @@ button{outline:none;border:none;}
 .service-card.yellow .service-img{background:var(--yellow-bright);}
 .service-card.green .service-img{background:var(--green-bright);}
 .service-body{flex:1;padding:11px 14px 14px;}
-.service-body h3{font-size:14px;color:#1a1a1a;margin-bottom:3px;}
-.service-body p{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-muted);line-height:1.45;}
+.service-body h3{font-size:15px;color:#1a1a1a;margin-bottom:3px;}
+.service-body p{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-muted);line-height:1.45;}
 
 /* ===========================
    WHY US
@@ -217,8 +217,8 @@ button{outline:none;border:none;}
 .why-item{display:flex;gap:13px;align-items:flex-start;background:rgba(255,255,255,.6);border-radius:20px;padding:16px;transition:transform .2s;}
 .why-item:hover{transform:translateY(-3px);}
 .why-icon{width:44px;height:44px;border-radius:14px;background:var(--yellow-card);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.why-item h3{font-size:14px;color:#1a1a1a;margin-bottom:3px;}
-.why-item p{font-family:'Inter',sans-serif;font-size:13px;color:#666;line-height:1.5;}
+.why-item h3{font-size:15px;color:#1a1a1a;margin-bottom:3px;}
+.why-item p{font-family:'Inter',sans-serif;font-size:14px;color:#666;line-height:1.5;}
 
 /* ===========================
    SCHEDULE + ZVEDAVA
@@ -232,8 +232,8 @@ button{outline:none;border:none;}
 .tl-dot.blue{background:var(--blue-light);}
 .tl-dot.yellow{background:var(--yellow);}
 .tl-time{font-family:'Quicksand',sans-serif;font-size:12px;font-weight:700;color:#5590C4;margin-bottom:1px;}
-.tl-name{font-family:'Quicksand',sans-serif;font-size:14px;font-weight:700;color:#1a1a1a;}
-.tl-desc{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-muted);}
+.tl-name{font-family:'Quicksand',sans-serif;font-size:15px;font-weight:700;color:#1a1a1a;}
+.tl-desc{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-muted);}
 .z-item{background:rgba(255,255,255,.6);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center;margin-bottom:10px;}
 .z-item:last-child{margin-bottom:0;}
 .z-item-title{font-family:'Quicksand',sans-serif;font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:2px;}
@@ -265,7 +265,7 @@ button{outline:none;border:none;}
 .testi-card{background:rgba(255,255,255,.72);border-radius:22px;padding:20px;transition:transform .2s;}
 .testi-card:hover{transform:translateY(-3px);}
 .testi-stars{color:var(--yellow);font-size:14px;margin-bottom:8px;}
-.testi-text{font-family:'Inter',sans-serif;font-size:14px;color:#444;line-height:1.68;margin-bottom:12px;font-style:italic;}
+.testi-text{font-family:'Inter',sans-serif;font-size:15px;color:#444;line-height:1.68;margin-bottom:12px;font-style:italic;}
 .testi-name{font-family:'Quicksand',sans-serif;font-size:14px;font-weight:700;color:#1a1a1a;}
 
 /* ===========================
@@ -286,8 +286,8 @@ button{outline:none;border:none;}
 .news-img img{width:100%;height:100%;object-fit:cover;}
 .news-body{padding:15px 17px 18px;}
 .news-date{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-muted);margin-bottom:5px;font-weight:500;}
-.news-title{font-family:'Quicksand',sans-serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:6px;line-height:1.3;}
-.news-excerpt{font-family:'Inter',sans-serif;font-size:13px;color:#666;line-height:1.55;}
+.news-title{font-family:'Quicksand',sans-serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:6px;line-height:1.3;}
+.news-excerpt{font-family:'Inter',sans-serif;font-size:15px;color:#666;line-height:1.55;}
 .news-more{display:inline-block;margin-top:9px;font-family:'Quicksand',sans-serif;font-size:12px;font-weight:700;color:var(--blue-light);}
 .news-card.yellow .news-more{color:#C49000;}
 .news-card.green .news-more{color:#1A6640;}
@@ -325,7 +325,7 @@ button{outline:none;border:none;}
 .contact-card.sky .contact-icon{background:#A8D4F5;}
 .contact-body{padding:10px 14px;}
 .contact-label{font-family:'Quicksand',sans-serif;font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;}
-.contact-value{font-family:'Inter',sans-serif;font-size:13.5px;color:#1a1a1a;font-weight:500;line-height:1.4;}
+.contact-value{font-family:'Inter',sans-serif;font-size:15px;color:#1a1a1a;font-weight:500;line-height:1.4;}
 .contact-sub{font-family:'Inter',sans-serif;font-size:10px;color:#aaa;margin-top:1px;}
 .map-wrap{border-radius:22px;overflow:hidden;width:100%;height:260px;background:var(--blue-sky);}
 .map-wrap iframe{width:100%;height:100%;border:0;display:block;}
@@ -337,8 +337,8 @@ button{outline:none;border:none;}
 .footer-inner{max-width:1100px;margin:0 auto;}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px;margin-bottom:32px;}
 .footer h4{font-family:'Quicksand',sans-serif;font-size:13px;font-weight:700;color:var(--yellow);margin-bottom:11px;}
-.footer-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:11px;}
-.footer-link{display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:6px;transition:color .2s;}
+.footer-desc{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:11px;}
+.footer-link{display:block;font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.5);margin-bottom:6px;transition:color .2s;}
 .footer-link:hover{color:rgba(255,255,255,.85);}
 .footer-vs{display:inline-block;background:rgba(249,200,50,.14);color:var(--yellow);font-family:'Quicksand',sans-serif;font-size:12px;font-weight:700;padding:7px 16px;border-radius:50px;margin-top:4px;transition:background .2s;}
 .footer-vs:hover{background:rgba(249,200,50,.24);}
@@ -431,13 +431,14 @@ button{outline:none;border:none;}
 .news-popup-body{padding:28px 32px 36px;}
 .news-popup-date{font-family:'Inter',sans-serif;font-size:12px;color:#aaa;margin-bottom:8px;}
 .news-popup-title{font-family:'Quicksand',sans-serif;font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:16px;line-height:1.3;}
-.news-popup-content{font-family:'Inter',sans-serif;font-size:15px;color:#444;line-height:1.75;}
+.news-popup-excerpt{font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#666;line-height:1.6;margin-bottom:16px;padding-bottom:16px;border-bottom:1.5px solid #EEF4FF;}
+.news-popup-content{font-family:'Inter',sans-serif;font-size:16px;color:#444;line-height:1.8;}
 
 /* ===== HERO NEWS BLOB ===== */
 .hero-news-blob{
   position:absolute;
   bottom:90px;
-  right:52px;
+  right:120px;
   z-index:4;
   display:flex;
   flex-direction:column;
@@ -452,8 +453,8 @@ button{outline:none;border:none;}
   100%{transform:translateY(-10px);}
 }
 .hero-blob-circle{
-  width:150px;
-  height:150px;
+  width:180px;
+  height:180px;
   border-radius:50%;
   overflow:hidden;
   background:rgba(255,255,255,.2);
@@ -469,21 +470,21 @@ button{outline:none;border:none;}
   display:none;
 }
 .hero-blob-text{
-  margin-top:10px;
+  margin-top:12px;
   text-align:center;
-  max-width:180px;
+  max-width:200px;
 }
 .hero-news-tag{font-family:'Quicksand',sans-serif;font-size:9px;font-weight:700;color:#F9C832;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;display:block;}
-.hero-news-title{font-family:'Quicksand',sans-serif;font-size:12px;font-weight:700;color:#fff;line-height:1.35;text-shadow:0 1px 6px rgba(0,0,0,.5);display:block;}
+.hero-news-title{font-family:'Quicksand',sans-serif;font-size:14px;font-weight:700;color:#fff;line-height:1.35;text-shadow:0 1px 6px rgba(0,0,0,.5);display:block;}
 @media(max-width:900px){
   .hero-news-blob{bottom:80px;right:16px;}
-  .hero-blob-circle{width:120px;height:120px;}
+  .hero-blob-circle{width:150px;height:150px;}
   .hero-blob-text{max-width:150px;}
   .hero-news-title{font-size:11px;}
 }
 @media(max-width:600px){
   .hero-news-blob{bottom:75px;right:10px;}
-  .hero-blob-circle{width:100px;height:100px;}
+  .hero-blob-circle{width:120px;height:120px;}
   .hero-blob-text{max-width:130px;}
 }
 
@@ -534,6 +535,18 @@ button{outline:none;border:none;}
 }
 .download-btn:hover{background:#2B6EA8;transform:translateY(-2px);}
 .download-btn .dl-icon{font-size:18px;}
+
+
+/* ===== CLOUDS ===== */
+.cloud-deco{position:absolute;pointer-events:none;opacity:0.4;z-index:0;}
+@keyframes cloudDrift1{0%{transform:translateX(0);}50%{transform:translateX(18px);}100%{transform:translateX(0);}}
+@keyframes cloudDrift2{0%{transform:translateX(0);}50%{transform:translateX(-22px);}100%{transform:translateX(0);}}
+@keyframes cloudDrift3{0%{transform:translateX(0);}50%{transform:translateX(14px);}100%{transform:translateX(0);}}
+.cloud-1{animation:cloudDrift1 12s ease-in-out infinite;}
+.cloud-2{animation:cloudDrift2 16s ease-in-out infinite;}
+.cloud-3{animation:cloudDrift3 10s ease-in-out infinite;}
+.cloud-4{animation:cloudDrift1 18s ease-in-out infinite;}
+.cloud-5{animation:cloudDrift2 14s ease-in-out infinite;}
 
 /* scroll fade-in */
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
@@ -587,6 +600,17 @@ button{outline:none;border:none;}
      HERO
 =========================== -->
 <section class="hero" id="o-nas">
+
+  <!-- CLOUD DECORATIONS -->
+  <div class="cloud-deco cloud-1" style="top:8%;left:-2%;width:220px;">
+    <svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#fff"/></svg>
+  </div>
+  <div class="cloud-deco cloud-2" style="top:18%;right:5%;width:160px;">
+    <svg viewBox="0 0 218.2 104.9" xmlns="http://www.w3.org/2000/svg"><path d="M126.1,13.2c-8.2,0-15.7,2.9-21.6,7.6C95.8,8.2,81.5,0,65.2,0,39.1,0,18,21.1,18,47.2c0,1.3,0,2.5.1,3.8C7.8,53,0,61.8,0,72.5c0,9.6,6.2,17.5,14.8,21.3,5.6,2.5,12.1,3.5,18.9,3,5.4,5,12.6,8.1,20.5,8.1h134.1c16.5,0,29.9-13.4,29.9-29.9v-15.9c0-23-5.7-45.1-92.1-45.9Z" fill="#fff"/></svg>
+  </div>
+  <div class="cloud-deco cloud-3" style="bottom:22%;left:38%;width:100px;">
+    <svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg>
+  </div>
   <!-- fullscreen background photo -->
   <img id="cms-hero-bg" class="hero-bg-img" src="" alt="Hero" style="display:none;"/>
   <!-- dark overlay for readability -->
@@ -595,7 +619,7 @@ button{outline:none;border:none;}
   <img class="hero-bee-deco" src="https://www.skolka-vcielka.sk/images/header_imgs/vcela2.png" alt=""/>
   <img class="hero-bee-deco2" src="https://www.skolka-vcielka.sk/images/header_imgs/vcela3.png" alt=""/>
   <!-- content -->
-  <div style="width:100%;max-width:1100px;margin:0 auto;padding:0 32px;">
+  <div style="width:100%;max-width:1100px;margin:0 auto;padding:0 32px 0 48px;">
   <div class="hero-content fade-in">
     <div class="hero-badge">🐝 Ružinov, Bratislava</div>
     <h1 id="cms-hero-title">Kde detičky <em>rastú</em><br>a objavujú svet</h1>
@@ -612,7 +636,6 @@ button{outline:none;border:none;}
       <img class="hero-blob-photo" id="heroBlobPhoto" src="" alt="" style="display:none;"/>
     </div>
     <div class="hero-blob-text">
-      <span class="hero-news-tag">🔔 Novinka</span>
       <span class="hero-news-title" id="heroNewsTitle"></span>
     </div>
   </div>
@@ -644,8 +667,16 @@ button{outline:none;border:none;}
 <!-- ===========================
      SERVICES
 =========================== -->
-<section class="section bg-blue-pale" id="sluzby">
-    <div class="section-inner">
+<section class="section bg-blue-pale" id="sluzby" style="position:relative;">
+    
+    <!-- CLOUD DECORATIONS -->
+    <div class="cloud-deco cloud-4" style="top:10%;right:-1%;width:180px;opacity:0.25;">
+      <svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#4A9FD4"/></svg>
+    </div>
+    <div class="cloud-deco cloud-5" style="bottom:5%;left:2%;width:120px;opacity:0.2;">
+      <svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#4A9FD4"/></svg>
+    </div>
+    <div class="section-inner" style="position:relative;z-index:1;">
   <div class="section-center fade-in">
     <span class="label">Čo vám ponúkame</span>
     <h2>Naše služby a aktivity</h2>
@@ -787,8 +818,16 @@ button{outline:none;border:none;}
 <!-- ===========================
      NEWS
 =========================== -->
-<section class="section bg-warm" id="aktuality">
-    <div class="section-inner"><div class="news-header fade-in">
+<section class="section bg-warm" id="aktuality" style="position:relative;">
+    
+    <!-- CLOUD DECORATIONS -->
+    <div class="cloud-deco cloud-2" style="top:5%;right:0%;width:200px;opacity:0.18;">
+      <svg viewBox="0 0 218.2 104.9" xmlns="http://www.w3.org/2000/svg"><path d="M126.1,13.2c-8.2,0-15.7,2.9-21.6,7.6C95.8,8.2,81.5,0,65.2,0,39.1,0,18,21.1,18,47.2c0,1.3,0,2.5.1,3.8C7.8,53,0,61.8,0,72.5c0,9.6,6.2,17.5,14.8,21.3,5.6,2.5,12.1,3.5,18.9,3,5.4,5,12.6,8.1,20.5,8.1h134.1c16.5,0,29.9-13.4,29.9-29.9v-15.9c0-23-5.7-45.1-92.1-45.9Z" fill="#C49000"/></svg>
+    </div>
+    <div class="cloud-deco cloud-3" style="bottom:10%;left:1%;width:130px;opacity:0.15;">
+      <svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#C49000"/></svg>
+    </div>
+    <div class="section-inner" style="position:relative;z-index:1;"><div class="news-header fade-in">
     <div>
       <span class="label" style="color:#C49000;">Aktuality</span>
       <h2>Novinky v škôlke</h2>
@@ -803,7 +842,7 @@ button{outline:none;border:none;}
 <!-- ===========================
      PRICING
 =========================== -->
-<section class="section" style="background:#1A5FA8;padding-top:80px;padding-bottom:90px;position:relative;" id="cennik">
+<section class="section" style="background:#1A5FA8;padding-top:110px;padding-bottom:90px;position:relative;" id="cennik">
   <!-- wave top -->
   <div style="position:absolute;top:-1px;left:0;width:100%;line-height:0;pointer-events:none;z-index:2;">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%;display:block;" xmlns="http://www.w3.org/2000/svg">
@@ -967,6 +1006,7 @@ button{outline:none;border:none;}
     <div class="news-popup-body">
       <div class="news-popup-date" id="popupDate"></div>
       <div class="news-popup-title" id="popupTitle"></div>
+      <div class="news-popup-excerpt" id="popupExcerpt"></div>
       <div class="news-popup-content" id="popupContent"></div>
     </div>
   </div>
@@ -1360,8 +1400,10 @@ function _showPopup(news){
   if(d) d.textContent = news.published_at ? new Date(news.published_at).toLocaleDateString('sk-SK',{day:'numeric',month:'long',year:'numeric'}) : '';
   const t = document.getElementById('popupTitle');
   if(t) t.textContent = news.title||'';
+  const ex = document.getElementById('popupExcerpt');
+  if(ex) ex.textContent = news.excerpt||'';
   const ct = document.getElementById('popupContent');
-  if(ct) ct.innerHTML = (news.content||news.excerpt||'Obsah článku čoskoro...').replace(/\n/g,'<br>');
+  if(ct) ct.innerHTML = (news.content||'').replace(/\n/g,'<br>');
   const ov = document.getElementById('newsPopupOverlay');
   if(ov){ ov.classList.add('open'); document.body.style.overflow='hidden'; }
 }
