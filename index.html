@@ -882,6 +882,20 @@ button{outline:none;border:none;}
       <div class="z-item"><span style="font-size:24px;">🎨</span><div><div class="z-item-title">Kreatívne myslenie</div><div class="z-item-desc">Umenie, hudba, tvorivé hry</div></div></div>
       <div class="z-item"><span style="font-size:24px;">🏃</span><div><div class="z-item-title">Telesný rozvoj</div><div class="z-item-desc">Šport, pohyb, zdravý životný štýl</div></div></div>
       <div class="z-item"><span style="font-size:24px;">🔬</span><div><div class="z-item-title">Intelektuálny rozvoj</div><div class="z-item-desc">Zvedavosť, pokusy, objavovanie</div></div></div>
+      <!-- ZVEDAVA EXPAND -->
+      <div style="margin-top:20px;">
+        <button class="about-expand-btn" id="zvedavaBtn" onclick="toggleZvedava()" style="font-size:14px;">
+          Viac o programe <span class="arrow">↓</span>
+        </button>
+        <div class="about-text" id="zvedavaText">
+          <div class="about-text-inner" style="background:rgba(255,255,255,.65);">
+            <p>V školskom vzdelávacom programe <strong>Zvedavá Včielka</strong> sú rozpracované Učebné osnovy, ktoré sú zostavené z 10 obsahových celkov a 41 tém, ktoré sa navzájom prelínajú, dopĺňajú a spolu súvisia.</p>
+            <p>Učebné osnovy sú vytvorené podľa podmienok školy s prihliadnutím na ročné obdobia, sviatky roka, so zameraním na rozvoj optimálnej kognitívnej, senzomotorickej a sociálno-emocionálnej úrovne detí a špecifiká materskej školy.</p>
+            <p>Ku každému obsahovému celku sú začlenené všetky vzdelávacie oblasti: <strong>Jazyk a komunikácia, Matematika a práca s informáciami, Človek a spoločnosť, Človek a príroda, Človek a svet práce, Umenie a kultúra, Zdravie a pohyb.</strong></p>
+            <p>V Učebných osnovách sú zapracované Výkonové štandardy a Výkonové úrovne.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div></div>
 </section>
@@ -1199,6 +1213,18 @@ if(track){
 }
 
 
+
+// ===== ZVEDAVA TOGGLE =====
+function toggleZvedava(){
+  const btn = document.getElementById('zvedavaBtn');
+  const text = document.getElementById('zvedavaText');
+  if(!btn || !text) return;
+  const isOpen = text.classList.contains('open');
+  text.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  if(!isOpen) setTimeout(()=>{ text.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 100);
+}
+
 // ===== ABOUT TOGGLE =====
 function toggleAbout(){
   const btn = document.getElementById('aboutBtn');
@@ -1334,7 +1360,7 @@ async function loadCMS() {
     }
 
     // ── News ──
-    const { data: newsList, error: newsErr } = await cms.from('news').select('*').order('created_at', {ascending:false}).limit(3);
+    const { data: newsList, error: newsErr } = await cms.from('news').select('*').order('featured', {ascending:false}).order('created_at', {ascending:false}).limit(3);
     console.log('News:', newsList?.length, 'Error:', newsErr?.message);
     if (newsList && newsList.length > 0) {
       window._cmsNews = newsList;
@@ -1350,17 +1376,19 @@ async function loadCMS() {
           </div>
         </div>
       `).join('');
-      // hero blob
-      const latest = newsList[0];
+      // hero blob — use featured news, fallback to latest
+      const featured = newsList.find(n => n.featured) || newsList[0];
       const blob = document.getElementById('heroNewsBlob');
-      if (blob && latest) {
-        document.getElementById('heroNewsTitle').textContent = latest.title;
-        if (latest.photo_url) {
+      if (blob && featured) {
+        document.getElementById('heroNewsTitle').textContent = featured.title;
+        if (featured.photo_url) {
           const ph = document.getElementById('heroBlobPhoto');
-          if(ph){ ph.src = latest.photo_url; ph.style.display='block'; }
+          if(ph){ ph.src = featured.photo_url; ph.style.display='block'; }
         }
         blob.style.display = 'block';
-        blob._newsId = latest.id;
+        blob._newsId = featured.id;
+        window._cmsNews = window._cmsNews || [];
+        if (!window._cmsNews.find(x => x.id === featured.id)) window._cmsNews.push(featured);
       }
     }
 
@@ -1451,6 +1479,18 @@ document.addEventListener('DOMContentLoaded', loadCMS);
 })();
 
 
+
+
+// ===== ZVEDAVA TOGGLE =====
+function toggleZvedava(){
+  const btn = document.getElementById('zvedavaBtn');
+  const text = document.getElementById('zvedavaText');
+  if(!btn || !text) return;
+  const isOpen = text.classList.contains('open');
+  text.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  if(!isOpen) setTimeout(()=>{ text.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 100);
+}
 
 // ===== ABOUT TOGGLE =====
 function toggleAbout(){

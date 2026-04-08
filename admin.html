@@ -524,7 +524,7 @@ async function removeActivityPhoto(id) {
 
 // ===== NEWS =====
 async function loadNews() {
-  const { data } = await db.from('news').select('id,title,excerpt,content,photo_url,photo2_url,photo3_url,color,published_at,created_at').order('created_at', { ascending: false });
+  const { data } = await db.from('news').select('id,title,excerpt,content,photo_url,photo2_url,photo3_url,color,featured,published_at,created_at').order('created_at', { ascending: false });
   const list = document.getElementById('newsList');
   list.innerHTML = (data||[]).map(n => `
     <div class="news-item">
@@ -551,14 +551,14 @@ async function loadNews() {
       </div>
       <div class="field"><label>📸 Fotografia 2 (voliteľná)</label>
         <div class="img-upload" style="padding:14px;">
-          <input type="file" accept="image/*" onchange="uploadNewsPhoto(this,${n.id},'photo_url_2')"/>
-          <div>📸 ${n.photo_url_2 ? '<img src="'+n.photo_url_2+'" style="height:60px;border-radius:8px;margin-top:6px;"/> Zmeniť' : 'Nahrať fotografiu 2'}</div>
+          <input type="file" accept="image/*" onchange="uploadNewsPhoto(this,${n.id},'photo2_url')"/>
+          <div>📸 ${n.photo2_url ? '<img src="'+n.photo2_url+'" style="height:60px;border-radius:8px;margin-top:6px;"/> Zmeniť' : 'Nahrať fotografiu 2'}</div>
         </div>
       </div>
       <div class="field"><label>📸 Fotografia 3 (voliteľná)</label>
         <div class="img-upload" style="padding:14px;">
-          <input type="file" accept="image/*" onchange="uploadNewsPhoto(this,${n.id},'photo_url_3')"/>
-          <div>📸 ${n.photo_url_3 ? '<img src="'+n.photo_url_3+'" style="height:60px;border-radius:8px;margin-top:6px;"/> Zmeniť' : 'Nahrať fotografiu 3'}</div>
+          <input type="file" accept="image/*" onchange="uploadNewsPhoto(this,${n.id},'photo3_url')"/>
+          <div>📸 ${n.photo3_url ? '<img src="'+n.photo3_url+'" style="height:60px;border-radius:8px;margin-top:6px;"/> Zmeniť' : 'Nahrať fotografiu 3'}</div>
         </div>
       </div>
       <div class="field"><label>Farba karty</label>
@@ -572,18 +572,7 @@ async function loadNews() {
   `).join('') || '<div style="color:#888;padding:20px;">Žiadne novinky. Kliknite + Pridať novinku.</div>';
 }
 
-async function setFeaturedNews(id, featured) {
-  // first unfeatured all
-  await db.from('news').update({ featured: false }).neq('id', 0);
-  // then set this one if featured=true
-  if (featured) {
-    await db.from('news').update({ featured: true }).eq('id', id);
-    toast('⭐ Novinka zobrazená na hlavnej stránke!');
-  } else {
-    toast('Novinka skrytá z hlavnej stránky');
-  }
-  loadNews();
-}
+
 
 async function setFeaturedNews(id, featured) {
   // First unfeature all
@@ -595,7 +584,7 @@ async function setFeaturedNews(id, featured) {
   } else {
     toast('Odstránené z hlavnej stránky');
   }
-  loadNews();
+  await loadNews();
 }
 
 async function addNews() {
