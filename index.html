@@ -148,9 +148,10 @@ button{outline:none;border:none;}
 .hero-content{
   position:relative;
   z-index:2;
-  max-width:580px;
+  max-width:520px;
   padding:60px 0 180px 0;
   text-align:left;
+  margin-left:0;
 }
 .hero-badge{display:inline-block;background:var(--yellow);color:#1a1a1a;font-family:'Quicksand',sans-serif;font-size:11px;font-weight:700;padding:5px 16px;border-radius:50px;margin-bottom:18px;letter-spacing:.6px;text-transform:uppercase;}
 .hero h1{font-size:clamp(36px,6vw,58px);color:#fff;line-height:1.08;margin-bottom:18px;text-shadow:0 2px 16px rgba(0,0,0,.22);}
@@ -453,8 +454,8 @@ button{outline:none;border:none;}
   100%{transform:translateY(-10px);}
 }
 .hero-blob-circle{
-  width:180px;
-  height:180px;
+  width:220px;
+  height:220px;
   border-radius:50%;
   overflow:hidden;
   background:rgba(255,255,255,.2);
@@ -470,21 +471,21 @@ button{outline:none;border:none;}
   display:none;
 }
 .hero-blob-text{
-  margin-top:12px;
+  margin-top:14px;
   text-align:center;
-  max-width:200px;
+  max-width:240px;
 }
 .hero-news-tag{font-family:'Quicksand',sans-serif;font-size:9px;font-weight:700;color:#F9C832;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;display:block;}
-.hero-news-title{font-family:'Quicksand',sans-serif;font-size:14px;font-weight:700;color:#fff;line-height:1.35;text-shadow:0 1px 6px rgba(0,0,0,.5);display:block;}
+.hero-news-title{font-family:'Quicksand',sans-serif;font-size:17px;font-weight:700;color:#fff;line-height:1.4;text-shadow:0 1px 8px rgba(0,0,0,.6);display:block;}
 @media(max-width:900px){
   .hero-news-blob{bottom:80px;right:16px;}
-  .hero-blob-circle{width:150px;height:150px;}
+  .hero-blob-circle{width:180px;height:180px;}
   .hero-blob-text{max-width:150px;}
-  .hero-news-title{font-size:11px;}
+  .hero-news-title{font-size:14px;}
 }
 @media(max-width:600px){
   .hero-news-blob{bottom:75px;right:10px;}
-  .hero-blob-circle{width:120px;height:120px;}
+  .hero-blob-circle{width:140px;height:140px;}
   .hero-blob-text{max-width:130px;}
 }
 
@@ -537,9 +538,70 @@ button{outline:none;border:none;}
 .download-btn .dl-icon{font-size:18px;}
 
 
+
+/* ===== ABOUT EXPANDABLE ===== */
+.about-teaser{
+  text-align:center;
+  margin:32px auto 0;
+  max-width:700px;
+}
+.about-expand-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:'Quicksand',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  color:var(--blue);
+  background:rgba(255,255,255,.7);
+  border:none;
+  cursor:pointer;
+  padding:10px 24px;
+  border-radius:50px;
+  transition:.25s;
+  backdrop-filter:blur(6px);
+  box-shadow:0 2px 12px rgba(26,95,168,.1);
+}
+.about-expand-btn:hover{background:#fff;box-shadow:0 4px 20px rgba(26,95,168,.15);}
+.about-expand-btn .arrow{
+  display:inline-block;
+  font-size:18px;
+  transition:transform .35s;
+  line-height:1;
+}
+.about-expand-btn.open .arrow{transform:rotate(180deg);}
+.about-text{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .5s cubic-bezier(.4,0,.2,1), opacity .4s;
+  opacity:0;
+  text-align:left;
+}
+.about-text.open{
+  max-height:600px;
+  opacity:1;
+}
+.about-text-inner{
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  color:#444;
+  line-height:1.8;
+  background:rgba(255,255,255,.75);
+  border-radius:20px;
+  padding:28px 32px;
+  margin-top:16px;
+  box-shadow:0 2px 16px rgba(26,95,168,.07);
+  backdrop-filter:blur(6px);
+}
+.about-text-inner p{margin-bottom:12px;}
+.about-text-inner p:last-child{margin-bottom:0;}
+
 /* ===== CLOUDS ===== */
 .cloud-deco{position:absolute;pointer-events:none;opacity:0.4;z-index:0;}
-@keyframes cloudDrift1{0%{transform:translateX(0);}50%{transform:translateX(18px);}100%{transform:translateX(0);}}
+@keyframes cloudDrift1{0%{transform:translateX(0) translateY(0);}33%{transform:translateX(20px) translateY(-8px);}66%{transform:translateX(8px) translateY(5px);}100%{transform:translateX(0) translateY(0);}}
+@keyframes cloudDrift6{0%{transform:translateX(0) translateY(0);}40%{transform:translateX(-15px) translateY(10px);}70%{transform:translateX(25px) translateY(-5px);}100%{transform:translateX(0) translateY(0);}}
+@keyframes cloudDrift7{0%{transform:translateX(0) translateY(0) scale(1);}50%{transform:translateX(12px) translateY(-12px) scale(1.04);}100%{transform:translateX(0) translateY(0) scale(1);}}
+@keyframes cloudDrift8{0%{transform:translateX(0);}30%{transform:translateX(-20px);}70%{transform:translateX(10px);}100%{transform:translateX(0);}}
 @keyframes cloudDrift2{0%{transform:translateX(0);}50%{transform:translateX(-22px);}100%{transform:translateX(0);}}
 @keyframes cloudDrift3{0%{transform:translateX(0);}50%{transform:translateX(14px);}100%{transform:translateX(0);}}
 .cloud-1{animation:cloudDrift1 12s ease-in-out infinite;}
@@ -547,6 +609,71 @@ button{outline:none;border:none;}
 .cloud-3{animation:cloudDrift3 10s ease-in-out infinite;}
 .cloud-4{animation:cloudDrift1 18s ease-in-out infinite;}
 .cloud-5{animation:cloudDrift2 14s ease-in-out infinite;}
+.cloud-6{animation:cloudDrift6 19s ease-in-out infinite;}
+.cloud-7{animation:cloudDrift7 11s ease-in-out infinite;}
+.cloud-8{animation:cloudDrift8 22s ease-in-out infinite;}
+.cloud-9{animation:cloudDrift1 15s ease-in-out infinite 3s;}
+.cloud-10{animation:cloudDrift2 20s ease-in-out infinite 5s;}
+.cloud-11{animation:cloudDrift3 13s ease-in-out infinite 2s;}
+.cloud-12{animation:cloudDrift6 17s ease-in-out infinite 7s;}
+
+
+/* ===== ABOUT EXPANDABLE ===== */
+.about-teaser{
+  text-align:center;
+  margin:32px auto 0;
+  max-width:700px;
+}
+.about-expand-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:'Quicksand',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  color:var(--blue);
+  background:rgba(255,255,255,.7);
+  border:none;
+  cursor:pointer;
+  padding:10px 24px;
+  border-radius:50px;
+  transition:.25s;
+  backdrop-filter:blur(6px);
+  box-shadow:0 2px 12px rgba(26,95,168,.1);
+}
+.about-expand-btn:hover{background:#fff;box-shadow:0 4px 20px rgba(26,95,168,.15);}
+.about-expand-btn .arrow{
+  display:inline-block;
+  font-size:18px;
+  transition:transform .35s;
+  line-height:1;
+}
+.about-expand-btn.open .arrow{transform:rotate(180deg);}
+.about-text{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .5s cubic-bezier(.4,0,.2,1), opacity .4s;
+  opacity:0;
+  text-align:left;
+}
+.about-text.open{
+  max-height:600px;
+  opacity:1;
+}
+.about-text-inner{
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  color:#444;
+  line-height:1.8;
+  background:rgba(255,255,255,.75);
+  border-radius:20px;
+  padding:28px 32px;
+  margin-top:16px;
+  box-shadow:0 2px 16px rgba(26,95,168,.07);
+  backdrop-filter:blur(6px);
+}
+.about-text-inner p{margin-bottom:12px;}
+.about-text-inner p:last-child{margin-bottom:0;}
 
 /* scroll fade-in */
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
@@ -601,16 +728,16 @@ button{outline:none;border:none;}
 =========================== -->
 <section class="hero" id="o-nas">
 
-  <!-- CLOUD DECORATIONS -->
-  <div class="cloud-deco cloud-1" style="top:8%;left:-2%;width:220px;">
-    <svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#fff"/></svg>
-  </div>
-  <div class="cloud-deco cloud-2" style="top:18%;right:5%;width:160px;">
-    <svg viewBox="0 0 218.2 104.9" xmlns="http://www.w3.org/2000/svg"><path d="M126.1,13.2c-8.2,0-15.7,2.9-21.6,7.6C95.8,8.2,81.5,0,65.2,0,39.1,0,18,21.1,18,47.2c0,1.3,0,2.5.1,3.8C7.8,53,0,61.8,0,72.5c0,9.6,6.2,17.5,14.8,21.3,5.6,2.5,12.1,3.5,18.9,3,5.4,5,12.6,8.1,20.5,8.1h134.1c16.5,0,29.9-13.4,29.9-29.9v-15.9c0-23-5.7-45.1-92.1-45.9Z" fill="#fff"/></svg>
-  </div>
-  <div class="cloud-deco cloud-3" style="bottom:22%;left:38%;width:100px;">
-    <svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg>
-  </div>
+  <!-- CLOUD DECORATIONS HERO -->
+  <div class="cloud-deco cloud-1" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;top:5%;left:-3%;"><svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg" style="width:240px;display:block;"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-7" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;top:12%;left:28%;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg" style="width:90px;display:block;"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-2" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;top:10%;right:2%;"><svg viewBox="0 0 218.2 104.9" xmlns="http://www.w3.org/2000/svg" style="width:200px;display:block;"><path d="M126.1,13.2c-8.2,0-15.7,2.9-21.6,7.6C95.8,8.2,81.5,0,65.2,0,39.1,0,18,21.1,18,47.2c0,1.3,0,2.5.1,3.8C7.8,53,0,61.8,0,72.5c0,9.6,6.2,17.5,14.8,21.3,5.6,2.5,12.1,3.5,18.9,3,5.4,5,12.6,8.1,20.5,8.1h134.1c16.5,0,29.9-13.4,29.9-29.9v-15.9c0-23-5.7-45.1-92.1-45.9Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-3" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;top:35%;right:22%;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg" style="width:70px;display:block;"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-8" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;bottom:28%;left:42%;"><svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg" style="width:180px;display:block;"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-6" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;bottom:18%;left:8%;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg" style="width:110px;display:block;"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-9" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;bottom:12%;right:10%;"><svg viewBox="0 0 218.2 104.9" xmlns="http://www.w3.org/2000/svg" style="width:150px;display:block;"><path d="M126.1,13.2c-8.2,0-15.7,2.9-21.6,7.6C95.8,8.2,81.5,0,65.2,0,39.1,0,18,21.1,18,47.2c0,1.3,0,2.5.1,3.8C7.8,53,0,61.8,0,72.5c0,9.6,6.2,17.5,14.8,21.3,5.6,2.5,12.1,3.5,18.9,3,5.4,5,12.6,8.1,20.5,8.1h134.1c16.5,0,29.9-13.4,29.9-29.9v-15.9c0-23-5.7-45.1-92.1-45.9Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-11" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;top:55%;left:60%;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg" style="width:60px;display:block;"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-5" style="position:absolute;pointer-events:none;opacity:0.4;z-index:0;top:22%;left:52%;"><svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg" style="width:130px;display:block;"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#fff"/></svg></div>
   <!-- fullscreen background photo -->
   <img id="cms-hero-bg" class="hero-bg-img" src="" alt="Hero" style="display:none;"/>
   <!-- dark overlay for readability -->
@@ -619,7 +746,7 @@ button{outline:none;border:none;}
   <img class="hero-bee-deco" src="https://www.skolka-vcielka.sk/images/header_imgs/vcela2.png" alt=""/>
   <img class="hero-bee-deco2" src="https://www.skolka-vcielka.sk/images/header_imgs/vcela3.png" alt=""/>
   <!-- content -->
-  <div style="width:100%;max-width:1100px;margin:0 auto;padding:0 32px 0 48px;">
+  <div style="width:100%;max-width:1100px;margin:0 auto;padding:0 0 0 48px;">
   <div class="hero-content fade-in">
     <div class="hero-badge">🐝 Ružinov, Bratislava</div>
     <h1 id="cms-hero-title">Kde detičky <em>rastú</em><br>a objavujú svet</h1>
@@ -669,13 +796,11 @@ button{outline:none;border:none;}
 =========================== -->
 <section class="section bg-blue-pale" id="sluzby" style="position:relative;">
     
-    <!-- CLOUD DECORATIONS -->
-    <div class="cloud-deco cloud-4" style="top:10%;right:-1%;width:180px;opacity:0.25;">
-      <svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#4A9FD4"/></svg>
-    </div>
-    <div class="cloud-deco cloud-5" style="bottom:5%;left:2%;width:120px;opacity:0.2;">
-      <svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#4A9FD4"/></svg>
-    </div>
+    <!-- CLOUD DECORATIONS SERVICES -->
+    <div class="cloud-deco cloud-4" style="position:absolute;top:5%;right:-1%;width:180px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#fff"/></svg></div>
+    <div class="cloud-deco cloud-6" style="position:absolute;top:40%;left:-2%;width:140px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 218.2 104.9" xmlns="http://www.w3.org/2000/svg"><path d="M126.1,13.2c-8.2,0-15.7,2.9-21.6,7.6C95.8,8.2,81.5,0,65.2,0,39.1,0,18,21.1,18,47.2c0,1.3,0,2.5.1,3.8C7.8,53,0,61.8,0,72.5c0,9.6,6.2,17.5,14.8,21.3,5.6,2.5,12.1,3.5,18.9,3,5.4,5,12.6,8.1,20.5,8.1h134.1c16.5,0,29.9-13.4,29.9-29.9v-15.9c0-23-5.7-45.1-92.1-45.9Z" fill="#fff"/></svg></div>
+    <div class="cloud-deco cloud-7" style="position:absolute;bottom:8%;right:5%;width:100px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
+    <div class="cloud-deco cloud-5" style="position:absolute;bottom:2%;left:30%;width:80px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
     <div class="section-inner" style="position:relative;z-index:1;">
   <div class="section-center fade-in">
     <span class="label">Čo vám ponúkame</span>
@@ -683,6 +808,20 @@ button{outline:none;border:none;}
     <p class="desc">Bohatý program pre všestranný rozvoj — od jazykov až po šport a umenie.</p>
   </div>
   <div class="services-grid fade-in" id="cms-activities"></div>
+
+  <!-- ABOUT EXPANDABLE -->
+  <div class="about-teaser fade-in" style="position:relative;z-index:1;">
+    <button class="about-expand-btn" id="aboutBtn" onclick="toggleAbout()">
+      Viac o nás <span class="arrow">↓</span>
+    </button>
+    <div class="about-text" id="aboutText">
+      <div class="about-text-inner">
+        <p>Súkromná materská škola je predškolské zariadenie, ktoré poskytuje predprimárne vzdelávanie. Podporuje celostný osobnostný rozvoj detí v oblasti sociálno-emocionálnej, intelektuálnej, telesnej, morálnej estetickej, rozvíja schopnosti a zručnosti detí. Utvára predpoklady na ďalšie vzdelávanie. Pripravuje na život v spoločnosti s ohľadom na individuálne a vekové osobitosti detí.</p>
+        <p>Vzdelávací proces prebieha v súlade so Školským vzdelávacím programom „Zvedavá Včielka". Súkromná materská škola je 3-triedna. Poskytuje celodennú výchovu a vzdelávanie deťom vo veku od 2,5 do 6 rokov a deťom s odkladom povinnej školskej dochádzky.</p>
+        <p>Zariadenie je zaradené do siete škôl a školských zariadení Ministerstvom školstva, vedy, výskumu a športu Slovenskej republiky pod číslom: <strong>CD-2008-12814/27279-1:917</strong></p>
+      </div>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -755,7 +894,10 @@ button{outline:none;border:none;}
 <!-- ===========================
      GALLERY
 =========================== -->
-<section class="gallery-section bg-blue-pale" id="galeria">
+<section class="gallery-section bg-blue-pale" id="galeria" style="position:relative;">
+  <!-- CLOUD DECORATIONS GALLERY -->
+  <div class="cloud-deco cloud-10" style="position:absolute;top:8%;right:2%;width:160px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#fff"/></svg></div>
+  <div class="cloud-deco cloud-7" style="position:absolute;bottom:15%;left:0%;width:100px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
 
   <div class="section-inner"><div class="gallery-header fade-in">
     <div>
@@ -820,13 +962,11 @@ button{outline:none;border:none;}
 =========================== -->
 <section class="section bg-warm" id="aktuality" style="position:relative;">
     
-    <!-- CLOUD DECORATIONS -->
-    <div class="cloud-deco cloud-2" style="top:5%;right:0%;width:200px;opacity:0.18;">
-      <svg viewBox="0 0 218.2 104.9" xmlns="http://www.w3.org/2000/svg"><path d="M126.1,13.2c-8.2,0-15.7,2.9-21.6,7.6C95.8,8.2,81.5,0,65.2,0,39.1,0,18,21.1,18,47.2c0,1.3,0,2.5.1,3.8C7.8,53,0,61.8,0,72.5c0,9.6,6.2,17.5,14.8,21.3,5.6,2.5,12.1,3.5,18.9,3,5.4,5,12.6,8.1,20.5,8.1h134.1c16.5,0,29.9-13.4,29.9-29.9v-15.9c0-23-5.7-45.1-92.1-45.9Z" fill="#C49000"/></svg>
-    </div>
-    <div class="cloud-deco cloud-3" style="bottom:10%;left:1%;width:130px;opacity:0.15;">
-      <svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#C49000"/></svg>
-    </div>
+    <!-- CLOUD DECORATIONS NEWS -->
+    <div class="cloud-deco cloud-2" style="position:absolute;top:5%;right:0%;width:200px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 218.2 104.9" xmlns="http://www.w3.org/2000/svg"><path d="M126.1,13.2c-8.2,0-15.7,2.9-21.6,7.6C95.8,8.2,81.5,0,65.2,0,39.1,0,18,21.1,18,47.2c0,1.3,0,2.5.1,3.8C7.8,53,0,61.8,0,72.5c0,9.6,6.2,17.5,14.8,21.3,5.6,2.5,12.1,3.5,18.9,3,5.4,5,12.6,8.1,20.5,8.1h134.1c16.5,0,29.9-13.4,29.9-29.9v-15.9c0-23-5.7-45.1-92.1-45.9Z" fill="#fff"/></svg></div>
+    <div class="cloud-deco cloud-8" style="position:absolute;top:30%;left:-1%;width:110px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
+    <div class="cloud-deco cloud-3" style="position:absolute;bottom:10%;left:1%;width:160px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 198.9 90.1" xmlns="http://www.w3.org/2000/svg"><path d="M142.2,47.3c0-18.8-15.3-34.1-34.1-34.1-8.2,0-15.7,2.9-21.6,7.6C77.8,8.2,63.5,0,47.2,0,21.1,0,0,21.1,0,47.2v13c0,16.5,13.4,29.9,29.9,29.9h139.1c16.5,0,29.9-13.4,29.9-29.9,0,0,0-11.9-56.7-12.9Z" fill="#fff"/></svg></div>
+    <div class="cloud-deco cloud-12" style="position:absolute;bottom:2%;right:3%;width:90px;opacity:0.4;pointer-events:none;z-index:0;"><svg viewBox="0 0 74.6 41.8" xmlns="http://www.w3.org/2000/svg"><path d="M50.3,5.3c-3.3,0-6.2,1.1-8.6,3C38.2,3.3,32.5,0,26,0,15.7,0,7.2,8.4,7.2,18.8v1.5c-4.1.8-7.2,4.3-7.2,8.6,0,3.8,2.5,7,5.9,8.5,2.2,1,4.8,1.4,7.5,1.2,2.2,2,5.1,3.2,8.2,3.2h41.1c6.6,0,11.9-5.3,11.9-11.9,0-16.2-8.4-24.6-24.3-24.6Z" fill="#fff"/></svg></div>
     <div class="section-inner" style="position:relative;z-index:1;"><div class="news-header fade-in">
     <div>
       <span class="label" style="color:#C49000;">Aktuality</span>
@@ -1056,6 +1196,20 @@ if(track){
   track.addEventListener('mouseleave',()=>isDown=false);
   track.addEventListener('mouseup',()=>isDown=false);
   track.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-track.offsetLeft;track.scrollLeft=scrollL-(x-startX)*1.5;});
+}
+
+
+// ===== ABOUT TOGGLE =====
+function toggleAbout(){
+  const btn = document.getElementById('aboutBtn');
+  const text = document.getElementById('aboutText');
+  if(!btn || !text) return;
+  const isOpen = text.classList.contains('open');
+  text.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  if(!isOpen){
+    setTimeout(()=>{ text.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 100);
+  }
 }
 
 // ===== SCROLL TO NEWS =====
@@ -1296,6 +1450,20 @@ document.addEventListener('DOMContentLoaded', loadCMS);
   }
 })();
 
+
+
+// ===== ABOUT TOGGLE =====
+function toggleAbout(){
+  const btn = document.getElementById('aboutBtn');
+  const text = document.getElementById('aboutText');
+  if(!btn || !text) return;
+  const isOpen = text.classList.contains('open');
+  text.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  if(!isOpen){
+    setTimeout(()=>{ text.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 100);
+  }
+}
 
 // ===== SCROLL TO NEWS =====
 function scrollToNews(e){
