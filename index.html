@@ -536,7 +536,7 @@ button{outline:none;border:none;}
 .download-btn .dl-icon{font-size:18px;}
 
 /* scroll fade-in */
-.fade-in{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease;}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .fade-in.visible{opacity:1;transform:translateY(0);}
 </style>
 </head>
@@ -871,11 +871,11 @@ button{outline:none;border:none;}
             <div class="contact-sub">kliknutím zavoláte</div>
           </div>
       </a>
-      <a class="contact-card green" href="/cdn-cgi/l/email-protection#6801060e07281b0307040309451e0b010d040309461b03">
+      <a class="contact-card green" href="/cdn-cgi/l/email-protection#4d24232b220d3e262221262c603b2e242821262c633e26">
           <div class="contact-icon">✉️</div>
           <div class="contact-body">
             <div class="contact-label">E-mail</div>
-            <div class="cms-email contact-value"><span class="__cf_email__" data-cfemail="9df4f3fbf2ddeef6f2f1f6fcb0ebfef4f8f1f6fcb3eef6">[email&#160;protected]</span></div>
+            <div class="cms-email contact-value"><span class="__cf_email__" data-cfemail="3f565159507f4c545053545e12495c565a53545e114c54">[email&#160;protected]</span></div>
             <div class="contact-sub">kliknutím napíšete</div>
           </div>
       </a>
@@ -933,7 +933,7 @@ button{outline:none;border:none;}
       <h4>Kontakt</h4>
       <span class="footer-link">Sečovská 144/3, Ružinov</span>
       <a href="tel:0918607935" class="footer-link">0918 607 935</a>
-      <a href="/cdn-cgi/l/email-protection#751c1b131a35061e1a191e145803161c10191e145b061e" class="footer-link"><span class="__cf_email__" data-cfemail="41282f272e01322a2e2d2a206c372228242d2a206f322a">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#7c15121a133c0f171310171d510a1f151910171d520f17" class="footer-link"><span class="__cf_email__" data-cfemail="f79e999198b7849c989b9c96da81949e929b9c96d9849c">[email&#160;protected]</span></a>
       <span class="footer-link">Po–Pia: 7:00 – 17:00</span>
     </div>
   </div>
@@ -1381,4 +1381,10 @@ document.addEventListener('DOMContentLoaded', function(){
   const lbClose = document.getElementById('lbClose');
   const lb = document.getElementById('lightbox');
   if(lbPrev) lbPrev.addEventListener('click', e=>{e.stopPropagation();lbGo(-1);});
-  if(lbNext) lbNext
+  if(lbNext) lbNext.addEventListener('click', e=>{e.stopPropagation();lbGo(1);});
+  if(lb) lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
+  if(lbClose) lbClose.addEventListener('click',closeLightbox);
+});
+</script>
+</body>
+</html>
